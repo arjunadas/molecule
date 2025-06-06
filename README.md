@@ -1,3 +1,7 @@
+### дайнный пайплайн скачаиает ansible роль и проверяет её с помощью ansible molecule
+
+ниже описаны шаги по настройке процесса
+
 #from https://sysadmintalks.ru/ansible-gitlab-ci/
 
 #создаём образ с установленным ansible + molecule + docker, на базе которого будет выполняться наш CI/CD
