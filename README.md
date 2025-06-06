@@ -4,7 +4,7 @@
 
 #from https://sysadmintalks.ru/ansible-gitlab-ci/
 
-#создаём образ с установленным ansible + molecule + docker, на базе этого образа будет создан gitlab-runner, на этом раннере будет проходить процесс проеверки
+#создаём образ с установленным ansible + molecule + docker, на базе этого образа будет создан gitlab-runner, на этом раннере будет проходить процесс проверки
 
 nano Dockerfile
 ```
