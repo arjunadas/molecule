@@ -1,0 +1,30 @@
+# .gitlab-ci.yml
+stages:
+  - molecule_test
+  - finish
+
+molecule_job:
+  stage: molecule_test
+  script:
+    - mkdir -p ~/.ssh
+    - echo "HOST *" > ~/.ssh/config
+    - echo "StrictHostKeyChecking no" >> ~/.ssh/config
+    - echo "$SSH_KEY_FOR_GIT" > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - sudo apt install -y docker.io	    
+    - mkdir -p ~/.ansible/roles/
+    - cd ~/.ansible/roles
+    - rm -rf bpmsoft-redis
+    - git clone git@192.168.0.49:student/bpmsoft-redis.git
+    - ansible-galaxy install -r ~/.ansible/roles/bpmsoft-redis/molecule/default/requirements.yml
+    - cd ~/.ansible/roles/bpmsoft-redis
+    - sudo molecule test
+  tags:
+    - molecule
+     
+finish_job:
+  stage: finish
+  script:
+    - echo "all fine"
+  tags:
+    - molecule
