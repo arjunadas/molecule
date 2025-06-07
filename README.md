@@ -85,5 +85,5 @@ nano /etc/gitlab-runner/config.toml
 ```
 volumes = ["/cache", "/var/run/docker.sock:/var/run/docker.sock"]
 
-docker restart gitlab-runner
+# docker restart gitlab-runner
 ```
