@@ -78,6 +78,7 @@ docker exec -it gitlab-runner gitlab-runner register
 #правим на сервере, где у нас крутится gitlab-runner
 
 docker exec -it gitlab-runner bash
+
 nano /etc/gitlab-runner/config.toml
 
 #приводим к виду
