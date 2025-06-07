@@ -77,7 +77,8 @@ docker exec -it gitlab-runner gitlab-runner register
 #для работы docker-in-docker, надо внести правки в конфиг файл
 #правим на сервере, где у нас крутится gitlab-runner
 
-nano /srv/gitlab-runner/config/config.toml
+docker exec -it gitlab-runner bash
+nano /etc/gitlab-runner/config.toml
 
 #приводим к виду
 ```
