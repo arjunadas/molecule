@@ -53,7 +53,9 @@ docker image pull test-yakurnov-harbor.rnd.omnichannel.ru/library/ansible:2.17
 #для запуска гилаб раннера, в докере
 #идём на сервер, где у нас крутится gitlab-runner
 ```
+# для локальной работы, без домена, я прокидываю параметр add-host
 docker run -d --name gitlab-runner --restart always \
+  --add-host=test-yakurnov-gitlab.rnd.omnichannel.ru:192.168.0.55 --add-host=test-yakurnov-harbor.rnd.omnichannel.ru:192.168.0.57 \
   -v /srv/gitlab-runner/config:/etc/gitlab-runner \
   -v /var/run/docker.sock:/var/run/docker.sock \
   gitlab/gitlab-runner:latest
